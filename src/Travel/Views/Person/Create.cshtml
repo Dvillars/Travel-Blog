@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Person - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Travel.Models.Person
+
+<h2>Create</h2>
+<hr />
+<h4>Add a new Person To Experience</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.First)
+    @Html.TextBoxFor(model => model.First)
+
+    @Html.LabelFor(model => model.Last)
+    @Html.TextBoxFor(model => model.Last)
+
+
+    @Html.DropDownList("ExperienceId")
+
+    <input type="submit" value="Add new Experience" />
+}

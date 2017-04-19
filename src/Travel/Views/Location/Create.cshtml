@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Location - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Travel.Models.Location
+
+<h2>Create</h2>
+<hr />
+<h4>Add a new Location</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.City)
+    @Html.TextBoxFor(model => model.City)
+
+    @Html.LabelFor(model => model.Country)
+    @Html.TextBoxFor(model => model.Country)
+
+    <input type="submit" value="Add new Location" />
+}

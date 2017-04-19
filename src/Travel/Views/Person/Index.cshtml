@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<Travel.Models.Person>
+
+<h2>Travel</h2>
+<h4>Name</h4>
+<ul>
+    @foreach (var person in Model)
+    {
+        <li>@Html.DisplayFor(modelPerson => person.First) | @Html.DisplayFor(modelPerson => person.Last)</li>
+    }
+</ul>
+
+<p>
+    @Html.ActionLink("Add New Person", "Create")
+</p>
