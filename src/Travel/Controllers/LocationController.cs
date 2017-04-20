@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Travel.Models;
 
 namespace Travel.Controllers
@@ -24,6 +26,20 @@ namespace Travel.Controllers
         public IActionResult Create(Location location)
         {
             db.Locations.Add(location);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisLocation = db.Locations.FirstOrDefault(locations => locations.LocationId == id);
+            return View(thisLocation);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Location location)
+        {
+            db.Entry(location).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

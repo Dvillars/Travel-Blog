@@ -5,12 +5,12 @@
 @model IEnumerable<Travel.Models.Experience>
 
 <h2>Travel</h2>
-<h4>@Html.DisplayNameFor(model => model.Description)</h4>
+
+<h4>Experiences</h4>
+<p>@Html.ActionLink("Add New Experience", "Create")</p>
 <ul>
     @foreach (var experience in Model)
     {
-        <li>@Html.DisplayFor(modelExperience => experience.Description)</li>
+        <li>@Html.DisplayFor(modelExperience => experience.Description) @Html.ActionLink("Edit Experience", "Edit", new { id = experience.ExperienceId }) | @Html.ActionLink("See detail thing", "PostDetails", new { id = experience.ExperienceId })</li>
     }
 </ul>
-
-@Html.ActionLink("Add New Experience", "Create")

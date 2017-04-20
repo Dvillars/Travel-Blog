@@ -6,11 +6,11 @@
 
 <h2>Travel</h2>
 <h4>@Html.DisplayNameFor(model => model.City)</h4>
+<p>@Html.ActionLink("Add new Location", "Create")</p>
 <ul>
     @foreach (var location in Model)
     {
-        <li>@Html.DisplayFor(modelLocation => location.City) | @Html.DisplayFor(modelLocation => location.Country)</li>
+        <li>@Html.DisplayFor(modelLocation => location.City) | @Html.DisplayFor(modelLocation => location.Country) | @Html.ActionLink("Edit Location", "Edit", new { id = location.LocationId })</li>
     }
 </ul>
 
-<p>@Html.ActionLink("Add new Location", "Create")</p>

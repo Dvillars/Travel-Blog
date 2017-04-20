@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Experience - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Travel.Models.Person
+
+<h2>Edit</h2>
+<hr />
+<h4>Edit this Persons: Name</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.PersonId)
+
+    @Html.LabelFor(model => model.First)
+    @Html.EditorFor(model => model.First)
+
+    @Html.LabelFor(model => model.Last)
+    @Html.EditorFor(model => model.Last)
+
+    @Html.DropDownList("ExperienceId")
+    <input type="submit" value="Save" class="btn btn-default" />
+}
+@Html.ActionLink("Back To List", "Index")

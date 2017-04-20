@@ -1,0 +1,26 @@
+﻿@model Travel.Models.Experience
+
+@{
+    ViewData["Title"] = "Post - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post Details</h2>
+
+<iframe width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFBxGCllfURGqQUPGN-QQ1p6h8O1R7Jsk&q=@ViewBag.Location.City"
+        allowfullscreen>
+</iframe>
+
+<p>@ViewBag.Location.City</p>
+<p>@ViewBag.Location.Country</p>
+
+<p>@Model.Description</p>
+
+@foreach (var person in ViewBag.People)
+{
+    <p>@person.First</p>
+    <p>@person.Last</p>
+} 

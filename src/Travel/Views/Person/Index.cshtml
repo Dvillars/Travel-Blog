@@ -5,14 +5,16 @@
 @model IEnumerable<Travel.Models.Person>
 
 <h2>Travel</h2>
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("LocationId")
+    <input type="submit" value="Filter By City" class="btn btn-default" />
+}
 <h4>Name</h4>
+<p>@Html.ActionLink("Add New Person", "Create")</p>
 <ul>
     @foreach (var person in Model)
     {
-        <li>@Html.DisplayFor(modelPerson => person.First) | @Html.DisplayFor(modelPerson => person.Last)</li>
+        <li>@Html.DisplayFor(modelPerson => person.First) | @Html.DisplayFor(modelPerson => person.Last) | @Html.ActionLink("Edit person", "Edit", new { id = person.PersonId })</li>
     }
 </ul>
-
-<p>
-    @Html.ActionLink("Add New Person", "Create")
-</p>
